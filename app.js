@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 1337;
 const TwitterPackage = require('twitter');
 
 const secret = {
@@ -9,7 +10,7 @@ const secret = {
     access_token: process.env.BOT_ACCESS_TOKEN,
     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
 }
-const PORT = process.env.PORT || 1337;
+
 
 const app = express();
 const Twitter = new TwitterPackage(secret);
@@ -24,5 +25,5 @@ app.post('/sms', (req, res) => {
 }); 
 
 http.createServer(app).listen(PORT, () => {
-    console.log('Express server listening on port 1337');
+    console.log('Express server listening on port ' + PORT);
 });
