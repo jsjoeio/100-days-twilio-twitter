@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 const TwitterPackage = require('twitter');
 
 const secret = {
-    consumer_key: 'ADD YOUR CONSUMER KEY',
-    consumer_secret: 'ADD YOUR CONSUMER SECRET',
-    access_token_key: 'ADD YOUR ACCESS TOKEN KEY',
-    access_token_secret: 'ADD YOUR ACCESS TOKEN SECRET'
+    consumer_key: process.env.BOT_CONSUMER_KEY,
+    consumer_secret: process.env.BOT_CONSUMER_SECRET,
+    access_token: process.env.BOT_ACCESS_TOKEN,
+    access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
 }
 
 const app = express();
