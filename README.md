@@ -1,5 +1,5 @@
 # twilio-twitter
-A simple app that takes tweets a text message using Twilio and Twitter.
+A simple app that tweets a text message using Twilio and Twitter.
 
 
 ## How does it work?
