@@ -19,9 +19,15 @@ app.use(bodyParser());
 
 app.post('/sms', (req, res) => {
     let message = req.body.Body;
-    Twitter.post('statuses/update', { "status": message }, function (error, tweet, response) {
-        console.log("Tweet posted successfully!")
-    });
+    try {
+        Twitter.post('statuses/update', { "status": message }, function (error, tweet, response) {
+            console.log("Tweet posted successfully!")
+        });
+    }
+
+    catch(err) {
+        console.log(`this is the error: ${err}`);
+    }
 }); 
 
 http.createServer(app).listen(PORT, () => {
