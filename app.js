@@ -18,16 +18,12 @@ const Twitter = new TwitterPackage(secret);
 app.use(bodyParser());
 
 app.post('/sms', (req, res) => {
+    //get the text message contents 
     let message = req.body.Body;
-    try {
-        Twitter.post('statuses/update', { "status": message }, function (error, tweet, response) {
-            console.log("Tweet posted successfully!")
-        });
-    }
-
-    catch(err) {
-        console.log(`this is the error: ${err}`);
-    }
+    //then tweet the message 
+    Twitter.post('statuses/update', { "status": message }, function (error, tweet, response) {
+        console.log(`Tweet posted successfully! Your tweet said: ${message}`)
+    });
 }); 
 
 http.createServer(app).listen(PORT, () => {
