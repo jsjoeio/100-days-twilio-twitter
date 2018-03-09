@@ -4,12 +4,12 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 1337;
 const Twitter = require('twitter');
 
-const client = new Twitter{
+const client = new Twitter ({
     consumer_key: process.env.BOT_CONSUMER_KEY,
     consumer_secret: process.env.BOT_CONSUMER_SECRET,
     access_token: process.env.BOT_ACCESS_TOKEN,
     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
-}
+});
 
 const app = express();
 
@@ -28,7 +28,7 @@ app.post('/sms', (req, res) => {
         .catch(function (error) {
             throw error;
         })
-        
+
     res.set('Content-Type', 'application/xml');
     res.send('<Response/>')
 }); 
