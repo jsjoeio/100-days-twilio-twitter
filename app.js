@@ -26,7 +26,7 @@ app.post('/sms', (req, res) => {
             console.log(`Tweet posted successfully! Your tweet said: ${tweet}`)
         })
         .catch(function (error) {
-            throw error;
+            console.log(`Uh oh...Looks like we've got an error here: ${error}`;
         })
 
     res.set('Content-Type', 'application/xml');
