@@ -24,6 +24,8 @@ app.post('/sms', (req, res) => {
     // Twitter.post('statuses/update', { "status": message }, function (error, tweet, response) {
     //     console.log(`Tweet posted successfully! Your tweet said: ${message}`)
     // });
+    res.set('Content-Type', 'application/xml');
+    res.send('<Response/>')
 }); 
 
 http.createServer(app).listen(PORT, () => {
