@@ -20,10 +20,9 @@ app.post('/sms', (req, res) => {
     //get the text message contents 
     let message = req.body.Body;
     console.log(`You received a message that says: ${message}`);
-    //then tweet the message 
-    // Twitter.post('statuses/update', { "status": message }, function (error, tweet, response) {
-    //     console.log(`Tweet posted successfully! Your tweet said: ${message}`)
-    // });
+    Twitter.post('statuses/update', { "status": message }, function (error, tweet, response) {
+        console.log(`Tweet posted successfully! Your tweet said: ${message}`)
+    });
     res.set('Content-Type', 'application/xml');
     res.send('<Response/>')
 }); 
