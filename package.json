@@ -16,5 +16,8 @@
     "http": "0.0.0",
     "twilio": "^3.13.0",
     "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
   }
 }
