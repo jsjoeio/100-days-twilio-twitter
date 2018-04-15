@@ -3,12 +3,40 @@ const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 1337;
+const { google } = require('googleapis');
 const Twitter = require('twitter');
-
+const API_URL = 'https://dm-meeting-app.firebaseio.com/roundFour.json';
+let bearerAccessToken;
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load();
 }
 
+/* Google Firebase API */
+const serviceAccount = require('./serviceAccountKey.json');
+const scopes = [
+  'https://www.googleapis.com/auth/userinfo.email',
+  'https://www.googleapis.com/auth/firebase.database'
+];
+const jwtClient = new google.auth.JWT(
+  serviceAccount.client_email,
+  null,
+  serviceAccount.private_key,
+  scopes
+);
+jwtClient.authorize(function(error, tokens) {
+  if (error) {
+    console.log('Error making request to generate access token:', error);
+  } else if (tokens.access_token === null) {
+    console.log(
+      'Provided service account does not have permission to generate access tokens'
+    );
+  } else {
+    const accessToken = tokens.access_token;
+    setAccessToken(accessToken);
+  }
+});
+
+/* Twitter API */
 const twitterClient = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -19,6 +47,10 @@ const twitterClient = new Twitter({
 const app = express();
 
 app.use(bodyParser());
+
+function setAccessToken(accessToken) {
+  bearerAccessToken = accessToken;
+}
 
 app.post('/sms', (req, res) => {
   if (req.body.From === process.env.PHONE_NUMBER) {
@@ -53,7 +85,7 @@ async function getMessage(req) {
 
 function getDayCount() {
   return axios
-    .get('https://dm-meeting-app.firebaseio.com/roundFour.json')
+    .get(API_URL, { headers: { Authorization: `Bearer ${bearerAccessToken}` } })
     .then(function(response) {
       return response.data;
     })
@@ -82,7 +114,9 @@ function postTweet(messageObject) {
 
 function postTweetToDB(messageObject) {
   axios
-    .post('https://dm-meeting-app.firebaseio.com/roundFour.json', messageObject)
+    .post(API_URL, messageObject, {
+      headers: { Authorization: `Bearer ${bearerAccessToken}` }
+    })
     .then(function(response) {
       console.log('Successfully posted tweet to DB.');
     })
