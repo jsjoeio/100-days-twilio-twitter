@@ -1,6 +1,6 @@
 const http = require('http');
 const express = require('express');
-const request = require('request');
+const axios = require('axios');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 1337;
 const Twitter = require('twitter');
@@ -21,15 +21,12 @@ const app = express();
 app.use(bodyParser());
 
 app.post('/sms', (req, res) => {
-  let round = 4;
-  let day = getDayCount();
+  // let day = getDayCount().then(response => {
+  //   return response.data[0].day;
+  // });
   if (req.body.From === process.env.PHONE_NUMBER) {
     //get the text message contents
-    getDayCount();
-    let text = req.body.Body;
-    let message = `R${round}|D${day}:\n${text} \n#100DaysOfCode`;
-
-    console.log(`You received a message that says: ${message}`);
+    getMessage(req);
 
     // twitterClient
     //   .post('statuses/update', {
@@ -49,29 +46,27 @@ app.post('/sms', (req, res) => {
   }
 });
 
-//function 1
-//get the day...
+async function getMessage(req) {
+  let round = 4;
+  const { day } = await getDayCount().then(daysObject => {
+    let objectId = Object.keys(daysObject)[Object.keys(daysObject).length - 1];
+    return daysObject[objectId];
+  });
+  let text = req.body.Body;
+  let message = `R${round}|D${day}:\n${text} \n#100DaysOfCode`;
+
+  console.log(`You received a message that says: ${message}`);
+}
 
 function getDayCount() {
-  const options = {
-    method: 'GET',
-    url: 'https://dm-meeting-app.firebaseio.com/roundFour.json',
-    headers: {
-      'Cache-Control': 'no-cache'
-    }
-  };
-
-  const currentDay = request(options, function(error, response, body) {
-    if (error) throw new Error(error);
-    let parsed = JSON.parse(body);
-    let arrOfDayObjects = [];
-    for (let dayObject in parsed) {
-      arrOfDayObjects.push(parsed[dayObject]);
-    }
-    let currentDayObject = arrOfDayObjects[arrOfDayObjects.length - 1];
-    return currentDayObject.day;
-  });
-  console.log('outside the request, currentDay is ', currentDay);
+  return axios
+    .get('https://dm-meeting-app.firebaseio.com/roundFour.json')
+    .then(function(response) {
+      return response.data;
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
 }
 
 //function 2
