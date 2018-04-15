@@ -21,12 +21,12 @@ const app = express();
 app.use(bodyParser());
 
 app.post('/sms', (req, res) => {
-  // let day = getDayCount().then(response => {
-  //   return response.data[0].day;
-  // });
   if (req.body.From === process.env.PHONE_NUMBER) {
-    //get the text message contents
-    getMessage(req);
+    //get the text message contents and get the day from the db
+    getMessage(req).then(messageObject => {
+      //call the twitter function...
+      console.log('here you are', messageObject);
+    });
 
     // twitterClient
     //   .post('statuses/update', {
@@ -47,15 +47,17 @@ app.post('/sms', (req, res) => {
 });
 
 async function getMessage(req) {
-  let round = 4;
-  const { day } = await getDayCount().then(daysObject => {
+  const round = 4;
+  const messageObject = {};
+  const previousDay = await getDayCount().then(daysObject => {
     let objectId = Object.keys(daysObject)[Object.keys(daysObject).length - 1];
-    return daysObject[objectId];
+    return daysObject[objectId].day;
   });
-  let text = req.body.Body;
-  let message = `R${round}|D${day}:\n${text} \n#100DaysOfCode`;
-
-  console.log(`You received a message that says: ${message}`);
+  const currentDay = previousDay + 1;
+  const text = req.body.Body;
+  messageObject.tweet = `R${round}|D${currentDay}:\n${text} \n#100DaysOfCode`;
+  messageObject.day = currentDay;
+  return messageObject;
 }
 
 function getDayCount() {
