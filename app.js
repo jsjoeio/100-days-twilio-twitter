@@ -22,24 +22,9 @@ app.use(bodyParser());
 
 app.post('/sms', (req, res) => {
   if (req.body.From === process.env.PHONE_NUMBER) {
-    //get the text message contents and get the day from the db
     getMessage(req).then(messageObject => {
-      //call the twitter function...
-      console.log('here you are', messageObject);
+      postTweet(messageObject);
     });
-
-    // twitterClient
-    //   .post('statuses/update', {
-    //     status: message
-    //   })
-    //   .then(function(tweet) {
-    //     console.log(`Tweet posted successfully! Your tweet said: ${tweet}`);
-    //   })
-    //   .catch(function(error) {
-    //     console.log(
-    //       `Uh oh...Looks like we've got an error here: ${JSON.stringify(error)}`
-    //     );
-    //   });
 
     res.set('Content-Type', 'application/xml');
     res.send('<Response/>');
@@ -50,8 +35,14 @@ async function getMessage(req) {
   const round = 4;
   const messageObject = {};
   const previousDay = await getDayCount().then(daysObject => {
-    let objectId = Object.keys(daysObject)[Object.keys(daysObject).length - 1];
-    return daysObject[objectId].day;
+    if (daysObject !== null) {
+      let objectId = Object.keys(daysObject)[
+        Object.keys(daysObject).length - 1
+      ];
+      return daysObject[objectId].day;
+    } else {
+      return 0;
+    }
   });
   const currentDay = previousDay + 1;
   const text = req.body.Body;
@@ -71,8 +62,34 @@ function getDayCount() {
     });
 }
 
-//function 2
-//post to the DB...
+function postTweet(messageObject) {
+  twitterClient
+    .post('statuses/update', {
+      status: messageObject.tweet
+    })
+    .then(function(tweet) {
+      console.log(`Tweet posted successfully! Your tweet said: ${tweet}`);
+      //if successfully, send a text that says 'tweet posted!'
+      postTweetToDB(messageObject);
+    })
+    .catch(function(error) {
+      //if unsuccessful, send a text with an error...
+      console.log(
+        `Uh oh...Looks like we've got an error here: ${JSON.stringify(error)}`
+      );
+    });
+}
+
+function postTweetToDB(messageObject) {
+  axios
+    .post('https://dm-meeting-app.firebaseio.com/roundFour.json', messageObject)
+    .then(function(response) {
+      console.log('Successfully posted tweet to DB.');
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
 
 http.createServer(app).listen(PORT, () => {
   console.log('Express server listening on port ' + PORT);
