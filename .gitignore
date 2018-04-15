@@ -1,3 +1,3 @@
 node_modules/
 .env
-dm-meeting-app-firebase-adminsdk-gxvpd-da6c6f362c.json
+serviceAccountKey.json
