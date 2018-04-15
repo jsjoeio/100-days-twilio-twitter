@@ -1,8 +1,7 @@
 {
   "name": "raspberry-pi-twilio-twitter",
   "version": "1.0.0",
-  "description":
-    "A way to send a text message from a Raspberry Pi to a Twilio phone number which then tweets the message body.",
+  "description": "A way to send a text message from a Raspberry Pi to a Twilio phone number which then tweets the message body.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -15,6 +14,7 @@
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
+    "googleapis": "^28.1.0",
     "http": "0.0.0",
     "twilio": "^3.13.0",
     "twitter": "^1.7.1"
