@@ -77,9 +77,11 @@ async function getMessage(req) {
     }
   });
   const currentDay = previousDay + 1;
+  const todaysDate = getTodaysDate(new Date());
   const text = req.body.Body;
   messageObject.tweet = `R${round}|D${currentDay}:\n${text} \n#100DaysOfCode`;
   messageObject.day = currentDay;
+  messageObject.date = todaysDate;
   return messageObject;
 }
 
@@ -92,6 +94,13 @@ function getDayCount() {
     .catch(function(error) {
       console.log(error);
     });
+}
+
+function getTodaysDate(today) {
+  const day = today.getDate();
+  const month = today.getMonth() + 1; //January is 0
+  const year = today.getFullYear();
+  return `${month}/${day}/${year}`;
 }
 
 function postTweet(messageObject) {
