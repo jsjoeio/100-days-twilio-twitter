@@ -4,14 +4,28 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 1337;
 const { google } = require('googleapis');
-const Twitter = require('twitter');
 const API_URL = 'https://dm-meeting-app.firebaseio.com/roundFour.json';
-let bearerAccessToken;
-if (process.env.NODE_ENV !== 'production') {
+
+if (process.env.NODE_ENV !== 'prod') {
   require('dotenv').load();
 }
 
+/* Twitter API */
+const Twitter = require('twitter');
+const twitterClient = new Twitter({
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+});
+
+/* Twilio Credentials */
+const accountSid = process.env.ACCOUNT_SID;
+const authToken = process.env.AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+
 /* Google Firebase API */
+let bearerAccessToken;
 const serviceAccount = require('./serviceAccountKey.json');
 const scopes = [
   'https://www.googleapis.com/auth/userinfo.email',
@@ -34,14 +48,6 @@ jwtClient.authorize(function(error, tokens) {
     const accessToken = tokens.access_token;
     setAccessToken(accessToken);
   }
-});
-
-/* Twitter API */
-const twitterClient = new Twitter({
-  consumer_key: process.env.TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
 const app = express();
@@ -109,15 +115,13 @@ function postTweet(messageObject) {
       status: messageObject.tweet
     })
     .then(function(tweet) {
-      console.log(`Tweet posted successfully! Your tweet said: ${tweet}`);
-      //if successfully, send a text that says 'tweet posted!'
+      let message = 'Tweet posted successfully!😄';
+      sendText(message);
       postTweetToDB(messageObject);
     })
     .catch(function(error) {
-      //if unsuccessful, send a text with an error...
-      console.log(
-        `Uh oh...Looks like we've got an error here: ${JSON.stringify(error)}`
-      );
+      let message = `Uh oh...Looks like we got an error. Tweet not posted :(`;
+      console.log(`Error: ${JSON.stringify(error)}`);
     });
 }
 
@@ -132,6 +136,16 @@ function postTweetToDB(messageObject) {
     .catch(function(error) {
       console.log(error);
     });
+}
+
+function sendText(message) {
+  client.messages
+    .create({
+      to: process.env.PHONE_NUMBER,
+      from: process.env.TWILIO_NUMBER,
+      body: message
+    })
+    .then(message => console.log(message.sid));
 }
 
 http.createServer(app).listen(PORT, () => {
