@@ -1,13 +1,14 @@
 {
-  "name": "raspberry-pi-twilio-twitter",
+  "name": "100-days-twilio-twitter",
   "version": "1.0.0",
-  "description": "A way to send a text message from a Raspberry Pi to a Twilio phone number which then tweets the message body.",
+  "description":
+    "A way to keep track of your 100 Days Of Code progress and tweet what you learn via texting.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "JP & JP",
+  "author": "Joe Previte",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
