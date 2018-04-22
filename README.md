@@ -43,7 +43,6 @@ cd 100-days-twilio-twitter
 
 ```
 npm install
-
 ```
 4. Create a `.env` file inside the root using either your text editor or from the command line
 
