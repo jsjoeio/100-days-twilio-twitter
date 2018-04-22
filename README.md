@@ -136,7 +136,7 @@ e. Add your link to "A MESSAGE COMES IN" with `/sms` at the end. So it should lo
 
 12. Send a text message to your Twilio phone number and check Twitter to see the magic happen 🧙🏼‍♂️
 
-![Text message proof](blob:https://imgur.com/2bbc5a33-3651-4e34-b8b2-c11a79579c00)
+![Text message proof](https://i.imgur.com/hCjwP1E.png)
 ![Twitter tweet proof](https://i.imgur.com/AjIlovC.png)
 
 13. Celebrate success 🕺🏻💃🏻 
