@@ -4,7 +4,7 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 1337;
 const { google } = require('googleapis');
-const API_URL = process.env.API_URL;
+const API_URL = 'https://dm-meeting-app.firebaseio.com/roundFour.json';
 
 if (process.env.NODE_ENV !== 'prod') {
   require('dotenv').load();
@@ -52,7 +52,7 @@ jwtClient.authorize(function(error, tokens) {
 
 const app = express();
 
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 function setAccessToken(accessToken) {
   bearerAccessToken = accessToken;
@@ -115,12 +115,13 @@ function postTweet(messageObject) {
       status: messageObject.tweet
     })
     .then(function(tweet) {
-      let message = 'Tweet posted successfully!😄';
+      let message = 'Tweet posted successfully! 😄';
       sendText(message);
       postTweetToDB(messageObject);
     })
     .catch(function(error) {
       let message = `Uh oh...Looks like we got an error. Tweet not posted :(`;
+      sendText(message);
       console.log(`Error: ${JSON.stringify(error)}`);
     });
 }
