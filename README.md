@@ -1,14 +1,14 @@
 # 100-days-twilio-twitter
 An app to help you keep track of your #100DaysOfCode progress. It keeps track of what day you're on, lets you send a text 📱 with what you worked on that day to post to Twitter🐦 and all you have to worry about it coding 🕺🏻💃🏻
 
-## How does it work?🤔
+## How does it work? 🤔
 Using Twilio's API and Twitter's API, you send a text message to your Twilio phone number. You then configure it to make a POST request, which triggers the `app.js` which is built on Node.js and Express.js which then takes the body of the text message and tweets it. 
 
-## Getting Started😀
+## Getting Started 😀
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites✅
+### Prerequisites ✅
 
 Here's what you'll need: 
 
@@ -20,7 +20,7 @@ npm 5.6.0
 - [Firebase](https://firebase.google.com/) account (free)
 - [Twilio](https://www.twilio.com/try-twilio) account (free)
 - [Twitter](https://twitter.com/signup?lang=en) account (free)
-- [Twitter "App](https://apps.twitter.com/) (free)
+- [Twitter "App"](https://apps.twitter.com/) (free)
 - Cell phone with texting abilities 
 
 ### Installing
