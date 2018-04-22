@@ -81,30 +81,15 @@ TWILIO_NUMBER=
 
 - `TWILIO_NUMBER` you'll need to "buy" a phone number from Twilio. When you sign up, you should receive some credit so you shouldn't need to actually spend money to get a number. Here's a [quick guide](https://support.twilio.com/hc/en-us/articles/223135247-How-to-Search-for-and-Purchase-Twilio-Phone-Numbers-from-Console) on how to do that.
 
-
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+6. TODO - finish all of this section.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+TODO: Add additional notes about how to deploy this on a live system
 
 ## Built With
 
+TODO...
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
@@ -113,11 +98,17 @@ Add additional notes about how to deploy this on a live system
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
+TODO 
+
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
+TODO
+
 ## Authors
+
+TODO
 
 * **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
@@ -125,9 +116,13 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## License
 
+TODO
+
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
+
+TODO 
 
 * Hat tip to anyone who's code was used
 * Inspiration
