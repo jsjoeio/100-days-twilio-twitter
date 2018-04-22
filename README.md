@@ -21,7 +21,7 @@ npm 5.6.0
 - [Twilio](https://www.twilio.com/try-twilio) account (free)
 - [Twitter](https://twitter.com/signup?lang=en) account (free)
 - [Twitter "App"](https://apps.twitter.com/) (free)
-- Cell phone with texting abilities 
+- Cell phone with texting capabilities 
 
 ### Installing 💻
 
@@ -44,7 +44,13 @@ cd 100-days-twilio-twitter
 ```
 npm install
 ```
-4. Create a `.env` file inside the root using either your text editor or from the command line 📁
+
+4. Update the `API_URL` variable to your project:
+
+- `API_URL` will be your Firebase Database URL. It should look something like 'https://my-app.firebaseio.com/roundOne.json'
+* Note: with Firebase, the database has a JSON-like structure. This is why we've added `roundOne.json` to the end of the root URL.
+
+5. Create a `.env` file inside the root using either your text editor or from the command line 📁
 
 ```
 touch .env
@@ -56,7 +62,6 @@ Here's what it should look like:
 
 ```
 NODE_ENV=dev
-API_URL=
 TWITTER_CONSUMER_KEY=
 TWITTER_CONSUMER_SECRET=
 TWITTER_ACCESS_TOKEN_KEY=
@@ -67,10 +72,7 @@ PHONE_NUMBER=
 TWILIO_NUMBER=
 ```
 
-5. Get your variables and add them to your `.env` file 📝
-
-- `API_URL` will be your Firebase Database URL. It should look something like 'https://my-app.firebaseio.com/roundOne.json'
-* Note: with Firebase, we're not creating a "real" database, rather a JSON file that will store our tweets. This is why we've added `roundOne.json` to the end of the root URL.
+6. Get your variables and add them to your `.env` file 📝
 
 - `TWITTER...` these four variables will come from your Twitter "app", which you set up at [https://apps.twitter.com/](https://apps.twitter.com/). 
 
@@ -80,60 +82,96 @@ TWILIO_NUMBER=
 
 - `TWILIO_NUMBER` you'll need to "buy" a phone number from Twilio. When you sign up, you should receive some credit so you shouldn't need to actually spend money to get a number. Here's a [quick guide](https://support.twilio.com/hc/en-us/articles/223135247-How-to-Search-for-and-Purchase-Twilio-Phone-Numbers-from-Console) on how purchase a Twilio number.
 
-6. Generate and create a `serviceAccountKey.json` file to hold your Firebase key 🗝
+7. Generate and create a `serviceAccountKey.json` file to hold your Firebase key 🗝
 
 Luckily, the Firebase documentation explains exactly how to do that. Follow [these instructions](https://firebase.google.com/docs/database/rest/auth#generate_an_access_token) to generate a new private key. After you generate it, you should get your `serviceAccountKey.json` file. Add that to the root directory. It will be used to authenticate our REST requests.
 
-7. Take a quick tea 🍵 break - we're almost there 😄
+8. Take a quick tea 🍵 break - we're almost there 😄
 
-8. Start your app by running the follow command from the command line
+9. Start your app by running this from the command line
 
 ```
-nodemon app.js
+npm start
 ```
-9. TODO
+
+If everything is working correctly, you should see the following printed to your node console:
+
+```
+Express server listening on port 1337. Let's get coding 🎉 !
+```
+![Time to dance](https://media.giphy.com/media/l3V0lsGtTMSB5YNgc/giphy.gif)
+
+10. Expose your port using [ngrok](https://ngrok.com/) so we can connect our Node app with Twilio
+
+- If you're on Mac, I recommend installing `ngrok` globally
+
+```
+npm install -g ngrok
+```
+
+Then run the following command in a new command line window to expose port 1337:
+
+```
+ngrok http 1337
+```
+
+If you're successful, you should see something like this:
+
+![ngrok screenshot](https://i.imgur.com/WRJ2rZH.png)
+
+11. Configure your Twilio number to listen for POST requests.
+
+In order to do this we need to copy the forwarding URL from that command line window where `ngrok` is running. It should look something like this: `http://1962da97.ngrok.io` *It shouldn't matter if you use the `http` or `https` URl*
+
+a. Open up the [Twilio console](https://www.twilio.com/console)
+b. Navigate to your [Phone Numbers](https://www.twilio.com/console/phone-numbers/incoming)
+c. Click the number you want to use
+d. Scroll down to "Messaging"
+e. Add your link to "A MESSAGE COMES IN" with `/sms` at the end. So it should look similar to: 
+
+![Adding ngrok URL to Twilio Phone Number](https://i.imgur.com/c5KWmx9.png)
+
+🛑 **IMPORTANT** 🛑
+> Because we are using the free version of ngrok. Anytime you start/stop `ngrok` you will get a new URL and have to go back in to Twilio's Console and add the new URL. Yes, this can be annoying for testing but if you want to upgrade, ngrok has a [$5/month tier](https://ngrok.com/pricing) where you get 3 reserved domains. 
+
+12. Send a text message to your Twilio phone number and check Twitter to see the magic happen 🧙🏼‍♂️
+
+![Text message proof](https://i.imgur.com/hCjwP1E.png)
+![Twitter tweet proof](https://i.imgur.com/AjIlovC.png)
+
+13. Celebrate success 🕺🏻💃🏻 
+
+![success gif](https://media.giphy.com/media/2vA33ikUb0Qz6/giphy.gif)
 
 ## Deployment
 
-TODO: Add additional notes about how to deploy this on a live system
+*TODO: Add additional notes about how to deploy this on a live system*
 
 ## Built With
 
-TODO...
+*TODO...
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+*
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-TODO 
+*TODO Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.*
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-TODO
+*TODO We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). *
 
 ## Authors
 
-TODO
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Joe Previte** - [jjprevite](https://github.com/jjprevite)
 
 ## License
 
-TODO
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+*TODO - This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details*
 
 ## Acknowledgments
 
-TODO 
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* The Twilio DevEd Team for creating [TwilioQuest](https://www.twilio.com/quest) to help me get up and running 🤗
+* Hat tip to Billie Thompson - [PurpleBooth](https://github.com/PurpleBooth) for the README.md template 
