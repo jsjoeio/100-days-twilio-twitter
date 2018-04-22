@@ -23,28 +23,28 @@ npm 5.6.0
 - [Twitter "App"](https://apps.twitter.com/) (free)
 - Cell phone with texting abilities 
 
-### Installing
+### Installing 💻
 
 In order to get everything set up correctly, follow the steps listed below: 
 
-1. Clone or (fork this repo)[https://github.com/jjprevite/100-days-twilio-twitter#fork-destination-box]
+1. Clone or (fork this repo)[https://github.com/jjprevite/100-days-twilio-twitter#fork-destination-box] 🍴
 
 ```
 git clone https://github.com/jjprevite/100-days-twilio-twitter.git
 ```
 
-2. Change directories into the root folder
+2. Change directories into the root folder ➡️
 
 ```
 cd 100-days-twilio-twitter
 ```
 
-3. Install the necessary dependencies
+3. Install the necessary dependencies 💿
 
 ```
 npm install
 ```
-4. Create a `.env` file inside the root using either your text editor or from the command line
+4. Create a `.env` file inside the root using either your text editor or from the command line 📁
 
 ```
 touch .env
@@ -67,7 +67,7 @@ PHONE_NUMBER=
 TWILIO_NUMBER=
 ```
 
-5. Get your variables and add them to your `.env` file. 
+5. Get your variables and add them to your `.env` file 📝
 
 - `API_URL` will be your Firebase Database URL. It should look something like 'https://my-app.firebaseio.com/roundOne.json'
 * Note: with Firebase, we're not creating a "real" database, rather a JSON file that will store our tweets. This is why we've added `roundOne.json` to the end of the root URL.
@@ -78,9 +78,20 @@ TWILIO_NUMBER=
 
 - `PHONE_NUMBER` is your phone number or the number of the phone you'll be using to send texts
 
-- `TWILIO_NUMBER` you'll need to "buy" a phone number from Twilio. When you sign up, you should receive some credit so you shouldn't need to actually spend money to get a number. Here's a [quick guide](https://support.twilio.com/hc/en-us/articles/223135247-How-to-Search-for-and-Purchase-Twilio-Phone-Numbers-from-Console) on how to do that.
+- `TWILIO_NUMBER` you'll need to "buy" a phone number from Twilio. When you sign up, you should receive some credit so you shouldn't need to actually spend money to get a number. Here's a [quick guide](https://support.twilio.com/hc/en-us/articles/223135247-How-to-Search-for-and-Purchase-Twilio-Phone-Numbers-from-Console) on how purchase a Twilio number.
 
-6. TODO - finish all of this section.
+6. Generate and create a `serviceAccountKey.json` file to hold your Firebase key 🗝
+
+Luckily, the Firebase documentation explains exactly how to do that. Follow [these instructions](https://firebase.google.com/docs/database/rest/auth#generate_an_access_token) to generate a new private key. After you generate it, you should get your `serviceAccountKey.json` file. Add that to the root directory. It will be used to authenticate our REST requests.
+
+7. Take a quick tea 🍵 break - we're almost there 😄
+
+8. Start your app by running the follow command from the command line
+
+```
+nodemon app.js
+```
+9. TODO
 
 ## Deployment
 
