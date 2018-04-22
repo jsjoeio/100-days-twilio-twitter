@@ -21,7 +21,7 @@ npm 5.6.0
 - [Twilio](https://www.twilio.com/try-twilio) account (free)
 - [Twitter](https://twitter.com/signup?lang=en) account (free)
 - [Twitter "App"](https://apps.twitter.com/) (free)
-- Cell phone with texting abilities 
+- Cell phone with texting capabilities 
 
 ### Installing 💻
 
