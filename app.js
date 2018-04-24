@@ -4,7 +4,7 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 1337;
 const { google } = require('googleapis');
-const API_URL = 'https://dm-meeting-app.firebaseio.com/roundFour.json';
+const API_URL = 'https://dm-meeting-app.firebaseio.com/round4.json';
 
 if (process.env.NODE_ENV !== 'prod') {
   require('dotenv').load();
