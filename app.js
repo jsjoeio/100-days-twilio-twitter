@@ -70,7 +70,8 @@ app.post('/sms', (req, res) => {
 });
 
 async function getMessage(req) {
-  const round = 1;
+  /* Set the round that you're on here: */
+  const round = 4;
   const messageObject = {};
   const previousDay = await getDayCount().then(daysObject => {
     if (daysObject !== null) {
