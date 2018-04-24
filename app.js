@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 1337;
 const { google } = require('googleapis');
 const API_URL = 'https://dm-meeting-app.firebaseio.com/round4.json';
 
-if (process.env.NODE_ENV !== 'prod') {
+if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load();
 }
 
