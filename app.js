@@ -72,6 +72,10 @@ app.post('/sms', (req, res) => {
 async function getMessage(req) {
   /* Set the round that you're on here: */
   const round = 4;
+
+  /* Set the hashtag you want to use here: */
+  const hashTag = '#100DaysOfCode';
+
   const messageObject = {};
   const previousDay = await getDayCount().then(daysObject => {
     if (daysObject !== null) {
@@ -86,7 +90,7 @@ async function getMessage(req) {
   const currentDay = previousDay + 1;
   const todaysDate = getTodaysDate(new Date());
   const text = req.body.Body;
-  messageObject.tweet = `R${round}|D${currentDay}:\n${text} \n#100DaysOfCode`;
+  messageObject.tweet = `R${round}|D${currentDay}:\n${text} \n${hashtag}`;
   messageObject.day = currentDay;
   messageObject.date = todaysDate;
   return messageObject;
