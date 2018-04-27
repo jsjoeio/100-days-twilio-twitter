@@ -1,8 +1,7 @@
 {
   "name": "100-days-twilio-twitter",
   "version": "1.0.0",
-  "description":
-    "A way to keep track of your 100 Days Of Code progress and tweet what you learn via texting.",
+  "description": "A way to keep track of your 100 Days Of Code progress and tweet what you learn via texting.",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
@@ -17,6 +16,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "googleapis": "^28.1.0",
+    "hoek": "^5.0.3",
     "http": "0.0.0",
     "twilio": "^3.13.0",
     "twitter": "^1.7.1"
