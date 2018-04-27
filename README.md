@@ -1,6 +1,6 @@
 # 100-days-twilio-twitter
 
-An app to help you keep track of your #100DaysOfCode progress. It keeps track of what day you're on, lets you send a text 📱 with what you worked on that day to post to Twitter🐦 and all you have to worry about it coding 🕺🏻💃🏻
+An app to help you keep track of your #100DaysOfCode progress. It keeps track of what day you're on, lets you send a text 📱 with what you worked on that day to post to Twitter🐦 and all you have to worry about is coding 🕺🏻💃🏻
 
 ## How does it work? 🤔
 
@@ -19,10 +19,7 @@ node v9.8.0
 npm 5.6.0
 ```
 
-* [Firebase](https://firebase.google.com/) account (free)
-* [Twilio](https://www.twilio.com/try-twilio) account (free)
-* [Twitter](https://twitter.com/signup?lang=en) account (free)
-* [Twitter "App"](https://apps.twitter.com/) (free)
+* Basic JavaScript/Node.js experience
 * Cell phone with texting capabilities
 
 ### Installing 💻
@@ -49,9 +46,9 @@ npm install
 
 4.  Update the `API_URL` variable to your project:
 
-* `API_URL` will be your Firebase Database URL. It should look something like 'https://my-app.firebaseio.com/roundOne.json'
+* `API_URL` will be your Firebase Database URL. It should look something like 'https://my-app.firebaseio.com/round1.json'
 
-- Note: with Firebase, the database has a JSON-like structure. This is why we've added `roundOne.json` to the end of the root URL.
+- Note: with Firebase, the database has a JSON-like structure. This is why we've added `round1.json` to the end of the root URL.
 
 5.  Create a `.env` file inside the root using either your text editor or from the command line 📁
 
@@ -154,20 +151,14 @@ _TODO: Add additional notes about how to deploy this on a live system_
 
 ## Built With
 
-\*TODO...
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-*
+* [Firebase](https://firebase.google.com/)
+* [Twilio](https://www.twilio.com/try-twilio)
+* [Twitter](https://twitter.com/)
+* [Twitter "App"](https://apps.twitter.com/)
 
 ## Contributing
 
-_TODO Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us._
-
-## Versioning
-
-_TODO We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). _
+_Please read [CONTRIBUTING.md](https://github.com/jjprevite/100-days-twilio-twitter/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests._
 
 ## Authors
 
@@ -175,9 +166,10 @@ _TODO We use [SemVer](http://semver.org/) for versioning. For the versions avail
 
 ## License
 
-_TODO - This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details_
+_This project is licensed under the MIT License - see the [LICENSE](https://github.com/jjprevite/100-days-twilio-twitter/blob/master/LICENSE) file for details_
 
 ## Acknowledgments
 
 * The Twilio DevEd Team for creating [TwilioQuest](https://www.twilio.com/quest) to help me get up and running 🤗
-* Hat tip to Billie Thompson - [PurpleBooth](https://github.com/PurpleBooth) for the README.md template
+* Alexander Kallaway @kallaway - the creator of #100DaysOfCode
+* Hat tip to Billie Thompson - [PurpleBooth](https://github.com/PurpleBooth) for the README.md template 🎩
