@@ -151,10 +151,10 @@ _TODO: Add additional notes about how to deploy this on a live system_
 
 ## Built With
 
-* [Firebase](https://firebase.google.com/) account (free)
-* [Twilio](https://www.twilio.com/try-twilio) account (free)
-* [Twitter](https://twitter.com/signup?lang=en) account (free)
-* [Twitter "App"](https://apps.twitter.com/) (free)
+* [Firebase](https://firebase.google.com/)
+* [Twilio](https://www.twilio.com/try-twilio)
+* [Twitter](https://twitter.com/)
+* [Twitter "App"](https://apps.twitter.com/)
 
 ## Contributing
 
