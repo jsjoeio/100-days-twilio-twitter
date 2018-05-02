@@ -147,7 +147,38 @@ e. Add your link to "A MESSAGE COMES IN" with `/sms` at the end. So it should lo
 
 ## Deployment
 
-_TODO: Add additional notes about how to deploy this on a live system_
+Deploying this small Node.js app is simple with services like [Heroku](http://www.heroku.com/). There are a few steps, which I will walk you through here:
+
+1. Get Heroku set up locally - here's a [quick tutorial](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
+2. Run `heroku create` inside the root directory.
+
+3. This is where it gets a little trickier. You have to be extremely careful here so please **read carefully**. If you don't follow this correctly, you'll risk exposing your API keys.
+
+  a. Create a new branch called `production` 
+      ```
+      git checkout -b production
+      ```
+  b. Inside your `.gitignore` file, remove this line:
+      ```
+      serviceAccountKey.json
+      ```
+      We need to have this file in production so we have to remove it from `.gitignore`. But whatever you do, do not push this       to GitHub.
+  c. Stage these files and commit (*note: this does not push them to GitHub*)
+     ```
+     git add . 
+     git commit -m "remove serviceACcountKey.json from gitignore for Heroku" 
+     ```
+  d. Now push this branch to Heroku (NOT GITHUB)
+     ```
+     git push heroku production
+     ```
+     This means we are pushing this branch to production for our app to run. Whenever you make future changes, you will need        to pull your `master` branch into `production`. Never run `git push -u origin production` - that will expose your              serviceAccountKey. 
+  e. Last step is to add our environment variables. You can do this by navigating to the [Heroku dashboard] page(https://dashboard.heroku.com/apps/). Click on your app, navigate to "Settings" and select "Reveal Config vars". Here is where you'll copy your variables from your `.env` file. 
+  
+  f. Since we've changed the variables, we need to restart our app. You can do so from the command line by running `heroku restart` or by clicking "More" next to "Open app" in the dashboard and selecting "Restart all dynos"
+  
+  g. BOOM! You've deployed your `100-days-twilio-twitter` app! Start texting and coding away! 🤪
+
 
 ## Built With
 
