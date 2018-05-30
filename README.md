@@ -1,6 +1,6 @@
 # 100-days-twilio-twitter
 
-An app to help you keep track of your #100DaysOfCode progress. It keeps track of what day you're on, lets you send a text 📱 with what you worked on that day to post to Twitter🐦 and all you have to worry about is coding 🕺🏻💃🏻
+An app to help you keep track of your #100DaysOfCode progress. It keeps track of what day you're on, lets you send a text 📱 with what you worked on that day to post to Twitter🐦 and all you have to worry about is coding 🕺🏻💃🏻 (soon, it will automatically commit to GitHub as well!)
 
 ## How does it work? 🤔
 
