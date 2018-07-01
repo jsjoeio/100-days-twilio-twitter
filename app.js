@@ -142,8 +142,11 @@ function postTweetToDB(messageObject) {
     })
 }
 
-function postTweetToGitHub(messageObject) {
-  const fileObject = ''
+//need to add function to get current file contents
+//need to add function to combine both
+//need to add function to create the fileObject
+
+function postTweetToGitHub(fileObject) {
   axios
     .post(GITHUB_URL, fileObject, {
       headers: { Authorization: `Basic ${process.env.GITHUB_AUTH_TOKEN}==` }
