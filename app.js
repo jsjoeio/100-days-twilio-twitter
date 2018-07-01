@@ -142,6 +142,20 @@ function postTweetToDB(messageObject) {
     })
 }
 
+function postTweetToGitHub(messageObject) {
+  const fileObject = ''
+  axios
+    .post(GITHUB_URL, fileObject, {
+      headers: { Authorization: `Basic ${process.env.GITHUB_AUTH_TOKEN}==` }
+    })
+    .then(function(response) {
+      console.log('Successfully updated file on GitHub.')
+    })
+    .catch(function(error) {
+      console.log(error);
+    })
+}
+
 function sendText(message) {
   client.messages
     .create({
