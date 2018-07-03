@@ -93,6 +93,7 @@ async function getMessage(req) {
   messageObject.tweet = `R${round}|D${currentDay}:\n${text} \n${hashTag}`
   messageObject.day = currentDay
   messageObject.date = todaysDate
+  messageObject.text = text
   return messageObject
 }
 
@@ -171,7 +172,13 @@ function createUpdatedFileObject(currentFile, messageObject) {
   }
   return updatedFileObject
 }
-//need to add function to create the fileObject
+
+function combineOldContentNewContent(currentFile, messageObject) {
+  //get current content -> readable data atob(string)
+  //add messageObject.text before other text
+  //convert all to base64 btoa(string)
+  //return it.
+}
 
 function getPathFromFileLocationUrl(FILE_LOCATION_URL) {
   //Find the index position of 'contents' in the url. Add 10 to exclude '/contents/'
