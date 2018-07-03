@@ -1,17 +1,19 @@
-const http = require('http')
-const express = require('express')
-const axios = require('axios')
-const bodyParser = require('body-parser')
+const http = require("http")
+const express = require("express")
+const axios = require("axios")
+const bodyParser = require("body-parser")
 const PORT = process.env.PORT || 1337
-const { google } = require('googleapis')
-const API_URL = 'https://dm-meeting-app.firebaseio.com/round4.json'
+const { google } = require("googleapis")
+const API_URL = "https://dm-meeting-app.firebaseio.com/round4.json"
+const FILE_LOCATION_URL =
+  "https://api.github.com/repos/jjprevite/100-days-of-code/contents/log4.md"
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').load()
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").load()
 }
 
 /* Twitter API */
-const Twitter = require('twitter')
+const Twitter = require("twitter")
 const twitterClient = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -22,14 +24,14 @@ const twitterClient = new Twitter({
 /* Twilio Credentials */
 const accountSid = process.env.ACCOUNT_SID
 const authToken = process.env.AUTH_TOKEN
-const client = require('twilio')(accountSid, authToken)
+const client = require("twilio")(accountSid, authToken)
 
 /* Google Firebase API */
 let bearerAccessToken
-const serviceAccount = require('./serviceAccountKey.json')
+const serviceAccount = require("./serviceAccountKey.json")
 const scopes = [
-  'https://www.googleapis.com/auth/userinfo.email',
-  'https://www.googleapis.com/auth/firebase.database'
+  "https://www.googleapis.com/auth/userinfo.email",
+  "https://www.googleapis.com/auth/firebase.database"
 ]
 const jwtClient = new google.auth.JWT(
   serviceAccount.client_email,
@@ -39,10 +41,10 @@ const jwtClient = new google.auth.JWT(
 )
 jwtClient.authorize(function(error, tokens) {
   if (error) {
-    console.log('Error making request to generate access token:', error)
+    console.log("Error making request to generate access token:", error)
   } else if (tokens.access_token === null) {
     console.log(
-      'Provided service account does not have permission to generate access tokens'
+      "Provided service account does not have permission to generate access tokens"
     )
   } else {
     const accessToken = tokens.access_token
@@ -58,14 +60,14 @@ function setAccessToken(accessToken) {
   bearerAccessToken = accessToken
 }
 
-app.post('/sms', (req, res) => {
+app.post("/sms", (req, res) => {
   if (req.body.From === process.env.PHONE_NUMBER) {
     getMessage(req).then(messageObject => {
       postTweet(messageObject)
     })
 
-    res.set('Content-Type', 'application/xml')
-    res.send('<Response/>')
+    res.set("Content-Type", "application/xml")
+    res.send("<Response/>")
   }
 })
 
@@ -74,7 +76,7 @@ async function getMessage(req) {
   const round = 4
 
   /* Set the hashtag you want to use here: */
-  const hashTag = '#100DaysOfCode'
+  const hashTag = "#100DaysOfCode"
 
   const messageObject = {}
   const previousDay = await getDayCount().then(daysObject => {
@@ -114,11 +116,11 @@ function getTodaysDate(today) {
 
 function postTweet(messageObject) {
   twitterClient
-    .post('statuses/update', {
+    .post("statuses/update", {
       status: messageObject.tweet
     })
     .then(function(tweet) {
-      let message = 'Tweet posted successfully! 😄'
+      let message = "Tweet posted successfully! 😄"
       sendText(message)
       postTweetToDB(messageObject)
     })
@@ -135,7 +137,7 @@ function postTweetToDB(messageObject) {
       headers: { Authorization: `Bearer ${bearerAccessToken}` }
     })
     .then(function(response) {
-      console.log('Successfully posted tweet to DB.')
+      console.log("Successfully posted tweet to DB.")
     })
     .catch(function(error) {
       console.log(error)
@@ -143,6 +145,20 @@ function postTweetToDB(messageObject) {
 }
 
 //need to add function to get current file contents
+function getCurrentFileFromGitHub() {
+  return axios
+    .get(FILE_LOCATION_URL, {
+      headers: { Authorization: `Basic ${process.env.GITHUB_AUTH_TOKEN}==` }
+    })
+    .then(function(response) {
+      console.log(response)
+
+      return response.data
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
+}
 //need to add function to combine both
 //need to add function to create the fileObject
 
@@ -152,10 +168,10 @@ function postTweetToGitHub(fileObject) {
       headers: { Authorization: `Basic ${process.env.GITHUB_AUTH_TOKEN}==` }
     })
     .then(function(response) {
-      console.log('Successfully updated file on GitHub.')
+      console.log("Successfully updated file on GitHub.")
     })
     .catch(function(error) {
-      console.log(error);
+      console.log(error)
     })
 }
 
@@ -170,5 +186,6 @@ function sendText(message) {
 }
 
 http.createServer(app).listen(PORT, () => {
+  getCurrentFileFromGitHub()
   console.log(`Express server listening on port ${PORT}. Let's get coding 🎉 !`)
 })
