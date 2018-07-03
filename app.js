@@ -144,15 +144,12 @@ function postTweetToDB(messageObject) {
     })
 }
 
-//need to add function to get current file contents
 function getCurrentFileFromGitHub() {
   return axios
     .get(FILE_LOCATION_URL, {
       headers: { Authorization: `Basic ${process.env.GITHUB_AUTH_TOKEN}==` }
     })
     .then(function(response) {
-      console.log(response)
-
       return response.data
     })
     .catch(function(error) {
@@ -160,7 +157,28 @@ function getCurrentFileFromGitHub() {
     })
 }
 //need to add function to combine both
+function createUpdatedFileObject(currentFile, messageObject) {
+  const updatedFileObject = {
+    "message": `add Day ${messageObject.day} using Twilio`,
+    "committer": {
+      "name": process.env.NAME,
+      "email": process.env.EMAIL
+    },
+    "content": combineOldContentNewContent(),
+    "sha": currentFile.sha,
+    "branch": "master",
+    "path": getPathFromFileLocationUrl(FILE_LOCATION_URL)
+  }
+  return updatedFileObject
+}
 //need to add function to create the fileObject
+
+function getPathFromFileLocationUrl(FILE_LOCATION_URL) {
+  //Find the index position of 'contents' in the url. Add 10 to exclude '/contents/'
+  const position = FILE_LOCATION_URL.indexOf('/contents/') + 10
+  const path = FILE_LOCATION_URL.substring(position)
+  return path
+}
 
 function postTweetToGitHub(fileObject) {
   axios
@@ -186,6 +204,6 @@ function sendText(message) {
 }
 
 http.createServer(app).listen(PORT, () => {
-  getCurrentFileFromGitHub()
   console.log(`Express server listening on port ${PORT}. Let's get coding 🎉 !`)
+  getCurrentFileFromGitHub()
 })
