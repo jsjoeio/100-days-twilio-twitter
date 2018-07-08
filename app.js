@@ -1,17 +1,19 @@
-const http = require('http')
-const express = require('express')
-const axios = require('axios')
-const bodyParser = require('body-parser')
+const http = require("http")
+const express = require("express")
+const axios = require("axios")
+const bodyParser = require("body-parser")
 const PORT = process.env.PORT || 1337
-const { google } = require('googleapis')
-const API_URL = 'https://dm-meeting-app.firebaseio.com/round4.json'
+const { google } = require("googleapis")
+const API_URL = "https://dm-meeting-app.firebaseio.com/round4.json"
+const FILE_LOCATION_URL =
+  "https://api.github.com/repos/jjprevite/100-days-of-code/contents/log4.md"
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').load()
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").load()
 }
 
 /* Twitter API */
-const Twitter = require('twitter')
+const Twitter = require("twitter")
 const twitterClient = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -22,14 +24,14 @@ const twitterClient = new Twitter({
 /* Twilio Credentials */
 const accountSid = process.env.ACCOUNT_SID
 const authToken = process.env.AUTH_TOKEN
-const client = require('twilio')(accountSid, authToken)
+const client = require("twilio")(accountSid, authToken)
 
 /* Google Firebase API */
 let bearerAccessToken
-const serviceAccount = require('./serviceAccountKey.json')
+const serviceAccount = require("./serviceAccountKey.json")
 const scopes = [
-  'https://www.googleapis.com/auth/userinfo.email',
-  'https://www.googleapis.com/auth/firebase.database'
+  "https://www.googleapis.com/auth/userinfo.email",
+  "https://www.googleapis.com/auth/firebase.database"
 ]
 const jwtClient = new google.auth.JWT(
   serviceAccount.client_email,
@@ -39,10 +41,10 @@ const jwtClient = new google.auth.JWT(
 )
 jwtClient.authorize(function(error, tokens) {
   if (error) {
-    console.log('Error making request to generate access token:', error)
+    console.log("Error making request to generate access token:", error)
   } else if (tokens.access_token === null) {
     console.log(
-      'Provided service account does not have permission to generate access tokens'
+      "Provided service account does not have permission to generate access tokens"
     )
   } else {
     const accessToken = tokens.access_token
@@ -58,14 +60,15 @@ function setAccessToken(accessToken) {
   bearerAccessToken = accessToken
 }
 
-app.post('/sms', (req, res) => {
+app.post("/sms", (req, res) => {
   if (req.body.From === process.env.PHONE_NUMBER) {
     getMessage(req).then(messageObject => {
       postTweet(messageObject)
+      sendToGitHub(messageObject)
     })
 
-    res.set('Content-Type', 'application/xml')
-    res.send('<Response/>')
+    res.set("Content-Type", "application/xml")
+    res.send("<Response/>")
   }
 })
 
@@ -74,7 +77,7 @@ async function getMessage(req) {
   const round = 4
 
   /* Set the hashtag you want to use here: */
-  const hashTag = '#100DaysOfCode'
+  const hashTag = "#100DaysOfCode"
 
   const messageObject = {}
   const previousDay = await getDayCount().then(daysObject => {
@@ -91,7 +94,17 @@ async function getMessage(req) {
   messageObject.tweet = `R${round}|D${currentDay}:\n${text} \n${hashTag}`
   messageObject.day = currentDay
   messageObject.date = todaysDate
+  messageObject.text = text
   return messageObject
+}
+
+async function sendToGitHub(messageObject) {
+  const currentFile = await getCurrentFileFromGitHub()
+  const updatedFileObject = await createUpdatedFileObject(
+    currentFile,
+    messageObject
+  )
+  putTweetToGitHub(updatedFileObject)
 }
 
 function getDayCount() {
@@ -114,11 +127,11 @@ function getTodaysDate(today) {
 
 function postTweet(messageObject) {
   twitterClient
-    .post('statuses/update', {
+    .post("statuses/update", {
       status: messageObject.tweet
     })
     .then(function(tweet) {
-      let message = 'Tweet posted successfully! 😄'
+      let message = "Tweet posted successfully! 😄"
       sendText(message)
       postTweetToDB(messageObject)
     })
@@ -135,7 +148,68 @@ function postTweetToDB(messageObject) {
       headers: { Authorization: `Bearer ${bearerAccessToken}` }
     })
     .then(function(response) {
-      console.log('Successfully posted tweet to DB.')
+      console.log("Successfully posted tweet to DB.")
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
+}
+
+function getCurrentFileFromGitHub() {
+  return axios
+    .get(FILE_LOCATION_URL, {
+      headers: { Authorization: `Basic ${process.env.GITHUB_AUTH_TOKEN}==` }
+    })
+    .then(function(response) {
+      return response.data
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
+}
+
+function combineOldContentNewContent(currentFile, messageObject) {
+  //Get current content -> converts it from base64 to readable string.
+  const currentContent = Buffer.from(currentFile.content, "base64").toString(
+    "utf8"
+  )
+  //Add log to the end of file with day, date and text
+  const combinedContent = `${currentContent}\n### Day ${messageObject.day}: ${
+    messageObject.date
+  }\n${messageObject.text}`
+  //Convert back to base64
+  return Buffer.from(combinedContent, "utf8").toString("base64")
+}
+
+function getPathFromFileLocationUrl(FILE_LOCATION_URL) {
+  //Find the index position of 'contents' in the url. Add 10 to exclude '/contents/'
+  const position = FILE_LOCATION_URL.indexOf("/contents/") + 10
+  const path = FILE_LOCATION_URL.substring(position)
+  return path
+}
+
+function createUpdatedFileObject(currentFile, messageObject) {
+  const updatedFileObject = {
+    message: `add Day ${messageObject.day} using Twilio`,
+    committer: {
+      name: process.env.NAME,
+      email: process.env.EMAIL
+    },
+    content: combineOldContentNewContent(currentFile, messageObject),
+    sha: currentFile.sha,
+    branch: "master",
+    path: getPathFromFileLocationUrl(FILE_LOCATION_URL)
+  }
+  return JSON.stringify(updatedFileObject)
+}
+
+function putTweetToGitHub(fileObject) {
+  axios
+    .put(FILE_LOCATION_URL, fileObject, {
+      headers: { Authorization: `Basic ${process.env.GITHUB_AUTH_TOKEN}==` }
+    })
+    .then(function(response) {
+      console.log("Successfully updated file on GitHub!")
     })
     .catch(function(error) {
       console.log(error)
