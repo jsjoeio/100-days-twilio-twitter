@@ -157,34 +157,38 @@ function getCurrentFileFromGitHub() {
       console.log(error)
     })
 }
-//need to add function to combine both
-function createUpdatedFileObject(currentFile, messageObject) {
-  const updatedFileObject = {
-    "message": `add Day ${messageObject.day} using Twilio`,
-    "committer": {
-      "name": process.env.NAME,
-      "email": process.env.EMAIL
-    },
-    "content": combineOldContentNewContent(),
-    "sha": currentFile.sha,
-    "branch": "master",
-    "path": getPathFromFileLocationUrl(FILE_LOCATION_URL)
-  }
-  return updatedFileObject
-}
 
 function combineOldContentNewContent(currentFile, messageObject) {
-  //get current content -> readable data atob(string)
-  //add messageObject.text before other text
-  //convert all to base64 btoa(string)
-  //return it.
+  //Get current content -> atob(string) -> converts it from base64 to readable string.
+  const currentContent = atob(currentFile.content)
+  //Add log to the end of file with day, date and text
+  const combinedContent = `${currentContent}\n### Day ${messageObject.day}: ${
+    messageObject.date
+  }\n${messageObject.text}`
+  //Convert back to base64 btoa(string)
+  return btoa(combinedContent)
 }
 
 function getPathFromFileLocationUrl(FILE_LOCATION_URL) {
   //Find the index position of 'contents' in the url. Add 10 to exclude '/contents/'
-  const position = FILE_LOCATION_URL.indexOf('/contents/') + 10
+  const position = FILE_LOCATION_URL.indexOf("/contents/") + 10
   const path = FILE_LOCATION_URL.substring(position)
   return path
+}
+
+function createUpdatedFileObject(currentFile, messageObject) {
+  const updatedFileObject = {
+    message: `add Day ${messageObject.day} using Twilio`,
+    committer: {
+      name: process.env.NAME,
+      email: process.env.EMAIL
+    },
+    content: combineOldContentNewContent(currentFile, messageObject),
+    sha: currentFile.sha,
+    branch: "master",
+    path: getPathFromFileLocationUrl(FILE_LOCATION_URL)
+  }
+  return updatedFileObject
 }
 
 function postTweetToGitHub(fileObject) {
