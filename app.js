@@ -64,6 +64,7 @@ app.post("/sms", (req, res) => {
   if (req.body.From === process.env.PHONE_NUMBER) {
     getMessage(req).then(messageObject => {
       postTweet(messageObject)
+      sendToGitHub(messageObject)
     })
 
     res.set("Content-Type", "application/xml")
@@ -95,6 +96,15 @@ async function getMessage(req) {
   messageObject.date = todaysDate
   messageObject.text = text
   return messageObject
+}
+
+async function sendToGitHub(messageObject) {
+  const currentFile = await getCurrentFileFromGitHub()
+  const updatedFileObject = await createUpdatedFileObject(
+    currentFile,
+    messageObject
+  )
+  putTweetToGitHub(updatedFileObject)
 }
 
 function getDayCount() {
@@ -159,14 +169,16 @@ function getCurrentFileFromGitHub() {
 }
 
 function combineOldContentNewContent(currentFile, messageObject) {
-  //Get current content -> atob(string) -> converts it from base64 to readable string.
-  const currentContent = atob(currentFile.content)
+  //Get current content -> converts it from base64 to readable string.
+  const currentContent = Buffer.from(currentFile.content, "base64").toString(
+    "utf8"
+  )
   //Add log to the end of file with day, date and text
   const combinedContent = `${currentContent}\n### Day ${messageObject.day}: ${
     messageObject.date
   }\n${messageObject.text}`
-  //Convert back to base64 btoa(string)
-  return btoa(combinedContent)
+  //Convert back to base64
+  return Buffer.from(combinedContent, "utf8").toString("base64")
 }
 
 function getPathFromFileLocationUrl(FILE_LOCATION_URL) {
@@ -188,16 +200,16 @@ function createUpdatedFileObject(currentFile, messageObject) {
     branch: "master",
     path: getPathFromFileLocationUrl(FILE_LOCATION_URL)
   }
-  return updatedFileObject
+  return JSON.stringify(updatedFileObject)
 }
 
-function postTweetToGitHub(fileObject) {
+function putTweetToGitHub(fileObject) {
   axios
-    .post(GITHUB_URL, fileObject, {
+    .put(FILE_LOCATION_URL, fileObject, {
       headers: { Authorization: `Basic ${process.env.GITHUB_AUTH_TOKEN}==` }
     })
     .then(function(response) {
-      console.log("Successfully updated file on GitHub.")
+      console.log("Successfully updated file on GitHub!")
     })
     .catch(function(error) {
       console.log(error)
@@ -216,5 +228,4 @@ function sendText(message) {
 
 http.createServer(app).listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}. Let's get coding 🎉 !`)
-  getCurrentFileFromGitHub()
 })
