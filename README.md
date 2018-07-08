@@ -170,7 +170,7 @@ Deploying this small Node.js app is simple with services like [Heroku](http://ww
      ```
   d. Now push this branch to Heroku (NOT GITHUB)
      ```
-     git push heroku production
+     git push heroku production:master
      ```
      This means we are pushing this branch to production for our app to run. Whenever you make future changes, you will need        to pull your `master` branch into `production`. Never run `git push -u origin production` - that will expose your              serviceAccountKey. 
   e. Last step is to add our environment variables. You can do this by navigating to the [Heroku dashboard] page(https://dashboard.heroku.com/apps/). Click on your app, navigate to "Settings" and select "Reveal Config vars". Here is where you'll copy your variables from your `.env` file. 
