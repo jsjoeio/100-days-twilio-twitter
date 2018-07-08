@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 1337
 const { google } = require("googleapis")
 const API_URL = "https://dm-meeting-app.firebaseio.com/round4.json"
 const FILE_LOCATION_URL =
-  "https://api.github.com/repos/jjprevite/100-days-of-code/contents/log4.md"
+  "https://api.github.com/repos/jjprevite/100-days-twilio-twitter/contents/logs.md"
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").load()
