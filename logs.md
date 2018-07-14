@@ -8,3 +8,5 @@ Take a look at what I've worked on each day. (P.S. - I added this feature after 
 Tonight I started learning about @graphql on the "How to GraphQL" website. Definitely recommend checking out 👍🏼
 
 Hoping I can implement GraphQL in a project soon! 😁
+### Day 24: 7/14/2018
+Today I went through the first two days of a @figmadesign tutorial by @trydesignlab - remembering how much I love Figma and want to use it to get better at UI design 😍
