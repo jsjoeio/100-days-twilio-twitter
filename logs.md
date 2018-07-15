@@ -12,3 +12,7 @@ Hoping I can implement GraphQL in a project soon! 😁
 Today I went through the first two days of a @figmadesign tutorial by @trydesignlab - remembering how much I love Figma and want to use it to get better at UI design 😍
 ### Day 25: 7/14/2018
 Today's session including another tutorial on @figmadesign and some Redux exercises on @freeCodeCamp. Finally feeling like I have a handle on Redux! 🙌🏼 It feels soooo good 😁
+### Day 26: 7/15/2018
+Woo! Finished another @figmadesign tutorial - my "app" is starting to look more realistic (will post screenshots in thread) 😋
+
+Planning to study more Redux on @freecodecamp and look at open issues on @gatsbyjs repo in preparation for tomorrow's pair-programming 🕺
