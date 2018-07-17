@@ -20,3 +20,7 @@ Planning to study more Redux on @freecodecamp and look at open issues on @gatsby
 Woo! Finished another @figmadesign tutorial - my "app" is starting to look more realistic (will post screenshots) 😋
 
 Planning to study more Redux on @freecodecamp and look at open issues on @gatsbyjs repo to prep for tomorrow's pair-programming 🕺
+### Day 27: 7/17/2018
+Another day working in @figmadesign - I made a sweet prototype (gif in thread).  Building wireframes and UI is getting me excited! 🕺
+
+Also completed all React/Redux challenges on @freecodecamo and submitted 2nd PR to @gatsbyjs 😋
