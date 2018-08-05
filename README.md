@@ -96,6 +96,7 @@ const GITHUB_AUTH_STRING = "johnsmith1:password1";
 console.log(btoa(GITHUB_AUTH_STRING));
 //returns am9obkBzbWl0aC5jb206cGFzc3dvcmQx=
 //you put this^(without the equal sign) in your .env for your GITHUB_AUTH_TOKEN
+//Later, look at the function getCurrentFileFromGitHub() and make sure the equal signs (if any are in your token) are in your function. i.e. if you had one, it should read `Basic ${process.env.GITHUB_AUTH_TOKEN}=`
 ```
 
 * `NAME` is as you would guess, your name. First and last. This is used for committing on GitHub. Put your name like so "John Smith" with a space in between.
