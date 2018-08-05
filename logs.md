@@ -24,3 +24,9 @@ Planning to study more Redux on @freecodecamp and look at open issues on @gatsby
 Another day working in @figmadesign - I made a sweet prototype (gif in thread).  Building wireframes and UI is getting me excited! 🕺
 
 Also completed all React/Redux challenges on @freecodecamo and submitted 2nd PR to @gatsbyjs 😋
+### Day 31: 8/5/2018
+😮 Moment of truth. I had to update git credentials in my twilio-twitter app so hoping this fix worked! 
+
+📅 Also had a weird timezone bug I think I fixed. Let's hope it all worked!
+
+😄 More coding later today too! Will share in thread 
