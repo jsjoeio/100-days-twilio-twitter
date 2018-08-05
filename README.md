@@ -44,11 +44,13 @@ cd 100-days-twilio-twitter
 npm install
 ```
 
-4.  Update `API_URL` and `FILE_LOCATION_URL` variables in your project:
+4.  Update `API_URL`, `TIME_ZONE`, `FILE_LOCATION_URL` variables in your project:
 
 * `API_URL` will be your Firebase Database URL. It should look something like 'https://my-app.firebaseio.com/round1.json'
 
 - Note: with Firebase, the database has a JSON-like structure. This is why we've added `round1.json` to the end of the root URL.
+
+* `TIME_ZONE` needs to be in the following format: 'America/Phoenix' Here's a [list](https://timezonedb.com/time-zones) if you need to look yours up
 
 * `FILE_LOCATION_URL` will be the location of the Markdown file you want your logs saved to. The format is as follows: `https://api.github.com/repos/:owner/:repo/contents/:path`. Here's an example: `https://api.github.com/repos/jjprevite/100-days-twilio-twitter/contents/logs.md`
 
