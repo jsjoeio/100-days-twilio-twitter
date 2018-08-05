@@ -90,12 +90,12 @@ EMAIL=
 
 * `GITHUB_AUTH_TOKEN` your auth token is 'username:password' based64 encoded. Here's an example:
 ```
-//GitHub username: john@smith.com
+//GitHub username: johnsmith1
 //GitHub password: password1
-const GITHUB_AUTH_STRING = "john@smith.com:password1";
-console.log(atob(GITHUB_AUTH_STRING));
-//returns am9obkBzbWl0aC5jb206cGFzc3dvcmQx
-//you put this^ in your .env for your GITHUB_AUTH_TOKEN
+const GITHUB_AUTH_STRING = "johnsmith1:password1";
+console.log(btoa(GITHUB_AUTH_STRING));
+//returns am9obkBzbWl0aC5jb206cGFzc3dvcmQx=
+//you put this^(without the equal sign) in your .env for your GITHUB_AUTH_TOKEN
 ```
 
 * `NAME` is as you would guess, your name. First and last. This is used for committing on GitHub. Put your name like so "John Smith" with a space in between.
@@ -175,7 +175,7 @@ Deploying this small Node.js app is simple with services like [Heroku](http://ww
 
 3. This is where it gets a little trickier. You have to be extremely careful here so please **read carefully**. If you don't follow this correctly, you'll risk exposing your API keys.
 
-  a. Create a new branch called `production` 
+  a. Create a new branch called `production`
       ```
       git checkout -b production
       ```
@@ -186,18 +186,18 @@ Deploying this small Node.js app is simple with services like [Heroku](http://ww
       We need to have this file in production so we have to remove it from `.gitignore`. But whatever you do, do not push this       to GitHub.
   c. Stage these files and commit (*note: this does not push them to GitHub*)
      ```
-     git add . 
-     git commit -m "remove serviceACcountKey.json from gitignore for Heroku" 
+     git add .
+     git commit -m "remove serviceACcountKey.json from gitignore for Heroku"
      ```
   d. Now push this branch to Heroku (NOT GITHUB)
      ```
      git push heroku production:master
      ```
-     This means we are pushing this branch to production for our app to run. Whenever you make future changes, you will need        to pull your `master` branch into `production`. Never run `git push -u origin production` - that will expose your              serviceAccountKey. 
-  e. Last step is to add our environment variables. You can do this by navigating to the [Heroku dashboard] page(https://dashboard.heroku.com/apps/). Click on your app, navigate to "Settings" and select "Reveal Config vars". Here is where you'll copy your variables from your `.env` file. 
-  
+     This means we are pushing this branch to production for our app to run. Whenever you make future changes, you will need        to pull your `master` branch into `production`. Never run `git push -u origin production` - that will expose your              serviceAccountKey.
+  e. Last step is to add our environment variables. You can do this by navigating to the [Heroku dashboard] page(https://dashboard.heroku.com/apps/). Click on your app, navigate to "Settings" and select "Reveal Config vars". Here is where you'll copy your variables from your `.env` file.
+
   f. Since we've changed the variables, we need to restart our app. You can do so from the command line by running `heroku restart` or by clicking "More" next to "Open app" in the dashboard and selecting "Restart all dynos"
-  
+
   g. BOOM! You've deployed your `100-days-twilio-twitter` app! Start texting and coding away! 🤪
 
 
