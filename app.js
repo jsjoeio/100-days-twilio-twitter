@@ -158,7 +158,7 @@ function postTweetToDB(messageObject) {
 function getCurrentFileFromGitHub() {
   return axios
     .get(FILE_LOCATION_URL, {
-      headers: { Authorization: `Basic ${process.env.GITHUB_AUTH_TOKEN}==` }
+      headers: { Authorization: `Basic ${process.env.GITHUB_AUTH_TOKEN}=` }
     })
     .then(function(response) {
       return response.data
