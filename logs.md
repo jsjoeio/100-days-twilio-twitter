@@ -23,7 +23,17 @@ Planning to study more Redux on @freecodecamp and look at open issues on @gatsby
 ### Day 27: 7/17/2018
 Another day working in @figmadesign - I made a sweet prototype (gif in thread).  Building wireframes and UI is getting me excited! 🕺
 
-Also completed all React/Redux challenges on @freecodecamo and submitted 2nd PR to @gatsbyjs 😋
+### Day 28: 8/1/2018
+Had a long break from coding due to vacation but I'm back 🙌🏼Researched building a Chrome Extension with React today. Stoked that it's possible! 😄 Planning to start soon.
+
+### Day 29: 8/2/2018
+🤓 Spent time learning about using subdomains with @netlify ✍️ Created basic wireframes for meditation ebook landing page using @figmadesign \n😄 Feeling good about making some progress!
+
+Also completed all React/Redux challenges on @freecodecamp and submitted 2nd PR to @gatsbyjs 😋
+
+### Day 30: 8/3/2018
+Tonight I spent the evening working on the design for my chrome extension using @figmadesign (screenshot in thread)🙌🏼 Also got onboarded to help with @freecodecamp guides repo 😄
+
 ### Day 31: 8/5/2018
 😮 Moment of truth. I had to update git credentials in my twilio-twitter app so hoping this fix worked! 
 
