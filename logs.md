@@ -47,3 +47,5 @@ No "coding" perse today but I did create a YouTube channel 👇🏼
 👉🏼 bit.ly/jsjoeio-youtube 
 
 ☝🏼If you wouldn't mind subscribing, it'll help me hit 100 to secure a custom handle 🙏🏼😁 first video out soon! 🤞🏼
+### Day 33: 8/7/2018
+🙈 Recorded my first YouTube video => https://youtu.be/BseYb9iihws
