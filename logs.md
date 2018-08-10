@@ -49,3 +49,5 @@ No "coding" perse today but I did create a YouTube channel 👇🏼
 ☝🏼If you wouldn't mind subscribing, it'll help me hit 100 to secure a custom handle 🙏🏼😁 first video out soon! 🤞🏼
 ### Day 33: 8/7/2018
 🙈 Recorded my first YouTube video => https://youtu.be/BseYb9iihws
+### Day 34: 8/9/2018
+Found a bit of time to work on my chrome extension. I was trying to set up a date and time input but it got a bit hairy 😂 I did find a few promising npm packages that could make it work though!
