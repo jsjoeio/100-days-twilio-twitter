@@ -51,3 +51,5 @@ No "coding" perse today but I did create a YouTube channel 👇🏼
 🙈 Recorded my first YouTube video => https://youtu.be/BseYb9iihws
 ### Day 34: 8/9/2018
 Found a bit of time to work on my chrome extension. I was trying to set up a date and time input but it got a bit hairy 😂 I did find a few promising npm packages that could make it work though!
+### Day 35: 8/11/201
+Continued working on the chrome extension I'm building. I got the date picker working but the CSS needs some work. 😛
