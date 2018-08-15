@@ -53,3 +53,5 @@ No "coding" perse today but I did create a YouTube channel 👇🏼
 Found a bit of time to work on my chrome extension. I was trying to set up a date and time input but it got a bit hairy 😂 I did find a few promising npm packages that could make it work though!
 ### Day 35: 8/11/201
 Continued working on the chrome extension I'm building. I got the date picker working but the CSS needs some work. 😛
+### Day 36: 8/14/201
+Found 20 mins to work on Chrome extension. I wish I could take a weekend in an @airbnb to go code and finish this thing up 😂 but hey, progress everyday is better than big gaps in development! 
