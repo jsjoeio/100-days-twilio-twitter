@@ -57,3 +57,5 @@ Continued working on the chrome extension I'm building. I got the date picker wo
 Found 20 mins to work on Chrome extension. I wish I could take a weekend in an @airbnb to go code and finish this thing up 😂 but hey, progress everyday is better than big gaps in development! 
 ### Day 37: 8/17/201
 Finally got the date picker and time picker working on my Chrome extension! 🙌🏼 The CSS will need a touch up or two but the logic works. Next step is constructing a URL with values! 
+### Day 38: 8/18/201
+Today I worked on my chrome extension. The first part is done. The next part is to build the site that the Chrome extension links too. Hoping to build it with @gatsbyjs 💜
