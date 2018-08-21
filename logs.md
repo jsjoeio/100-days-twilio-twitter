@@ -59,3 +59,5 @@ Found 20 mins to work on Chrome extension. I wish I could take a weekend in an @
 Finally got the date picker and time picker working on my Chrome extension! 🙌🏼 The CSS will need a touch up or two but the logic works. Next step is constructing a URL with values! 
 ### Day 38: 8/18/201
 Today I worked on my chrome extension. The first part is done. The next part is to build the site that the Chrome extension links too. Hoping to build it with @gatsbyjs 💜
+### Day 39: 8/20/201
+Made some really good progress tonight! Built a quick @gatsbyjs site in less then 2 mins that will handle the event details page(gif in thread). 🙌🏼 Next step is to convert to user's timezone! 🌍
