@@ -126,7 +126,7 @@ function getDayCount() {
 
 function getTodaysDate(today) {
   // 'today' will enter the function like "8/5/2018, 7:22:11 AM" so we slice it.
-  return today.slice(0, 8)
+  return today.slice(0, 9)
 }
 
 function postTweet(messageObject) {
@@ -180,7 +180,7 @@ function combineOldContentNewContent(currentFile, messageObject) {
   //Add log to the end of file with day, date and text
   const combinedContent = `${currentContent}\n### Day ${messageObject.day}: ${
     messageObject.date
-  }\n${messageObject.text}`
+  }\n${messageObject.text}\n`
   //Convert back to base64
   return Buffer.from(combinedContent, 'utf8').toString('base64')
 }
