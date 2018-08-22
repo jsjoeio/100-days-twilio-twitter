@@ -47,17 +47,24 @@ No "coding" perse today but I did create a YouTube channel 👇🏼
 👉🏼 bit.ly/jsjoeio-youtube 
 
 ☝🏼If you wouldn't mind subscribing, it'll help me hit 100 to secure a custom handle 🙏🏼😁 first video out soon! 🤞🏼
+
 ### Day 33: 8/7/2018
 🙈 Recorded my first YouTube video => https://youtu.be/BseYb9iihws
+
 ### Day 34: 8/9/2018
 Found a bit of time to work on my chrome extension. I was trying to set up a date and time input but it got a bit hairy 😂 I did find a few promising npm packages that could make it work though!
-### Day 35: 8/11/201
+
+### Day 35: 8/11/2018
 Continued working on the chrome extension I'm building. I got the date picker working but the CSS needs some work. 😛
-### Day 36: 8/14/201
+
+### Day 36: 8/14/2018
 Found 20 mins to work on Chrome extension. I wish I could take a weekend in an @airbnb to go code and finish this thing up 😂 but hey, progress everyday is better than big gaps in development! 
-### Day 37: 8/17/201
+
+### Day 37: 8/17/2018
 Finally got the date picker and time picker working on my Chrome extension! 🙌🏼 The CSS will need a touch up or two but the logic works. Next step is constructing a URL with values! 
-### Day 38: 8/18/201
+
+### Day 38: 8/18/2018
 Today I worked on my chrome extension. The first part is done. The next part is to build the site that the Chrome extension links too. Hoping to build it with @gatsbyjs 💜
-### Day 39: 8/20/201
+
+### Day 39: 8/20/2018
 Made some really good progress tonight! Built a quick @gatsbyjs site in less then 2 mins that will handle the event details page(gif in thread). 🙌🏼 Next step is to convert to user's timezone! 🌍
