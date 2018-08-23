@@ -68,3 +68,6 @@ Today I worked on my chrome extension. The first part is done. The next part is 
 
 ### Day 39: 8/20/2018
 Made some really good progress tonight! Built a quick @gatsbyjs site in less then 2 mins that will handle the event details page(gif in thread). 🙌🏼 Next step is to convert to user's timezone! 🌍
+
+### Day 40: 8/22/2018
+Continued working on my Chrome extension. Exported icons from @figmadesign and added to project. Updated manifest.json - making good progress! 🐶
