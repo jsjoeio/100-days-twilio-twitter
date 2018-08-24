@@ -71,3 +71,6 @@ Made some really good progress tonight! Built a quick @gatsbyjs site in less the
 
 ### Day 40: 8/22/2018
 Continued working on my Chrome extension. Exported icons from @figmadesign and added to project. Updated manifest.json - making good progress! 🐶
+
+### Day 41: 8/23/2018
+Worked on my Chrome extension this evening! Made lots of good progress fixing little things like CSS, handling input changes, etc. Next step is to implement bitly's URL shortner!😎
