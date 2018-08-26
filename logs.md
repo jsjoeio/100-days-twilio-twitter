@@ -74,3 +74,14 @@ Continued working on my Chrome extension. Exported icons from @figmadesign and a
 
 ### Day 41: 8/23/2018
 Worked on my Chrome extension this evening! Made lots of good progress fixing little things like CSS, handling input changes, etc. Next step is to implement bitly's URL shortner!😎
+
+### Day 42: 8/25/2018
+55 contributions on GitHub
+3 projects now using @travisci
+1 @gatsbyjs site updated 
+1 new Node/Express app created
+1 @googlechrome extension published to Chrome Web Store 
+1 project using @zeitq
+1 project using @surge_sh
+
+Wow - definitely my most intense day yet 😳 
