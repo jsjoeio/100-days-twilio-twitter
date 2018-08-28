@@ -96,3 +96,8 @@ Wow - definitely my most intense day yet 😳
 1 project using @surge_sh
 
 Intense day today 😳
+
+### Day 43: 8/27/2018
+Spent the last 3 hours trying to set up continuous deployment for my @googlechrome extension using a script and @travisci - I'm hitting a roadblock 😪🚧
+
+But I'll get back at it tomorrow! ✊🏼
