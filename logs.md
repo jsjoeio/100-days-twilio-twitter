@@ -101,3 +101,8 @@ Intense day today 😳
 Spent the last 3 hours trying to set up continuous deployment for my @googlechrome extension using a script and @travisci - I'm hitting a roadblock 😪🚧
 
 But I'll get back at it tomorrow! ✊🏼
+
+### Day 44: 8/28/2018
+Yessss! The CD process for my Chrome extension has now been fixed 😈🤘
+
+Big shout-out to @_gokatz (who wrote the tutorial I followed) for figuring out the error! 🙏🏼🙌🏼
