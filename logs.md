@@ -109,3 +109,6 @@ Big shout-out to @_gokatz (who wrote the tutorial I followed) for figuring out t
 
 ### Day 45: 9/2/2018,
 Today's been quite the day. I finished Week 6 of CS50 and started working on the Survey Form project for freeCodeCamp. Trying TDD by writing my tests first - learning a lot 😁
+
+### Day 46: 9/3/2018,
+Finished setting up basic tests for @freecodecamp Survey Form - excited because I'm turning this into a "real" project I'm going to use on my new website 😀
