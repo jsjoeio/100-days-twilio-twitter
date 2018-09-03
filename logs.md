@@ -106,3 +106,6 @@ But I'll get back at it tomorrow! ✊🏼
 Yessss! The CD process for my Chrome extension has now been fixed 😈🤘
 
 Big shout-out to @_gokatz (who wrote the tutorial I followed) for figuring out the error! 🙏🏼🙌🏼
+
+### Day 45: 9/2/2018,
+Today's been quite the day. I finished Week 6 of CS50 and started working on the Survey Form project for freeCodeCamp. Trying TDD by writing my tests first - learning a lot 😁
