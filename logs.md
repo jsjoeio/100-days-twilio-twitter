@@ -112,3 +112,6 @@ Today's been quite the day. I finished Week 6 of CS50 and started working on the
 
 ### Day 46: 9/3/2018,
 Finished setting up basic tests for @freecodecamp Survey Form - excited because I'm turning this into a "real" project I'm going to use on my new website 😀
+
+### Day 47: 9/4/2018,
+Spent more time working on the Survey Form - battled with testing a bit. It was only because I cleaned up the DOM after the first test so of course I couldn't find the elements to test 😂
