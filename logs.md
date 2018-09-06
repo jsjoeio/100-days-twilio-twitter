@@ -115,3 +115,6 @@ Finished setting up basic tests for @freecodecamp Survey Form - excited because 
 
 ### Day 47: 9/4/2018,
 Spent more time working on the Survey Form - battled with testing a bit. It was only because I cleaned up the DOM after the first test so of course I couldn't find the elements to test 😂
+
+### Day 48: 9/5/2018,
+Continued working on SurveyForm. Really enjoying react-testing-library so far. Almost finished with the HTML for my form, then next is styling with styled-components 💅
