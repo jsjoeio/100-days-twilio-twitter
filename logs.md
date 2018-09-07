@@ -118,3 +118,6 @@ Spent more time working on the Survey Form - battled with testing a bit. It was 
 
 ### Day 48: 9/5/2018,
 Continued working on SurveyForm. Really enjoying react-testing-library so far. Almost finished with the HTML for my form, then next is styling with styled-components 💅
+
+### Day 49: 9/6/2018,
+Added styled-components to my project. Next step is to go into @figmadesign and create the UI for my survey form so it's nice and pretty 🙂
