@@ -121,3 +121,6 @@ Continued working on SurveyForm. Really enjoying react-testing-library so far. A
 
 ### Day 49: 9/6/2018,
 Added styled-components to my project. Next step is to go into @figmadesign and create the UI for my survey form so it's nice and pretty 🙂
+
+### Day 50: 9/7/2018,
+Continued working on Survey Form. Couldn't get the form submissions to come in - need to do more investigating to figure it out. 🤪 
