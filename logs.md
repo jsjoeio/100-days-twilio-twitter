@@ -124,3 +124,8 @@ Added styled-components to my project. Next step is to go into @figmadesign and 
 
 ### Day 50: 9/7/2018,
 Continued working on Survey Form. Couldn't get the form submissions to come in - need to do more investigating to figure it out. 🤪 
+
+### Day 51: 9/9/2018,
+Finished the @freecodecamp survey form project today! Learned a lot of testing 😁
+
+Also made good progress on MITx - 6.00.1x currently on Week 1. 
