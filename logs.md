@@ -129,3 +129,8 @@ Continued working on Survey Form. Couldn't get the form submissions to come in -
 Finished the @freecodecamp survey form project today! Learned a lot of testing 😁
 
 Also made good progress on MITx - 6.00.1x currently on Week 1. 
+
+### Day 52: 9/10/2018
+Continued working on 6.00.1x - onto the problem sets for Week 1. Learning Python is kinda fun! Reminds me of what it's like to be a newbie again 🤓
+
+Also fixed two bugs on survey form 
