@@ -134,3 +134,6 @@ Also made good progress on MITx - 6.00.1x currently on Week 1.
 Continued working on 6.00.1x - onto the problem sets for Week 1. Learning Python is kinda fun! Reminds me of what it's like to be a newbie again 🤓
 
 Also fixed two bugs on survey form 
+
+### Day 53: 9/13/2018
+Today was a big success! 🙌🏼 Worked on 6.00.1x - solved the last problem in pset1 in Python. Slowly getting better at writing algorithms and understanding compsci fundamentals. 😄
