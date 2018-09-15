@@ -137,3 +137,6 @@ Also fixed two bugs on survey form
 
 ### Day 53: 9/13/2018
 Today was a big success! 🙌🏼 Worked on 6.00.1x - solved the last problem in pset1 in Python. Slowly getting better at writing algorithms and understanding compsci fundamentals. 😄
+
+### Day 54: 9/14/2018
+Made some good progress on 6.00.1x - almost done with Week 3. Last thing I need to do is finish guessing exercise for secret number 
