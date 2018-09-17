@@ -140,3 +140,6 @@ Today was a big success! 🙌🏼 Worked on 6.00.1x - solved the last problem in
 
 ### Day 54: 9/14/2018
 Made some good progress on 6.00.1x - almost done with Week 3. Last thing I need to do is finish guessing exercise for secret number 
+
+### Day 55: 9/16/2018
+Worked on 6.00.1x - finished exercises and videos for Week 2. Next up is pset2. Also started working on next fCC project but realized I need to migrate @gatsbyjs site from v1 to v2 
