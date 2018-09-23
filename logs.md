@@ -143,3 +143,6 @@ Made some good progress on 6.00.1x - almost done with Week 3. Last thing I need 
 
 ### Day 55: 9/16/2018
 Worked on 6.00.1x - finished exercises and videos for Week 2. Next up is pset2. Also started working on next fCC project but realized I need to migrate @gatsbyjs site from v1 to v2 
+
+### Day 56: 9/23/2018
+Completed Week 3, 5. Tuples and Lists for MIT 6.00.1x - next up is learning about Dictionaries (which I believe are equivalent to objects in JS) 
