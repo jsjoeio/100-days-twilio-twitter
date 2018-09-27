@@ -146,3 +146,6 @@ Worked on 6.00.1x - finished exercises and videos for Week 2. Next up is pset2. 
 
 ### Day 56: 9/23/2018
 Completed Week 3, 5. Tuples and Lists for MIT 6.00.1x - next up is learning about Dictionaries (which I believe are equivalent to objects in JS) 
+
+### Day 57: 9/26/2018
+Continued working in MIT 6.00.1x - learned how Lists in Python are like Arrays in JS, and Dictionaries are like Objects in JS 
