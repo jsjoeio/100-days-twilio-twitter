@@ -149,3 +149,6 @@ Completed Week 3, 5. Tuples and Lists for MIT 6.00.1x - next up is learning abou
 
 ### Day 57: 9/26/2018
 Continued working in MIT 6.00.1x - learned how Lists in Python are like Arrays in JS, and Dictionaries are like Objects in JS 
+
+### Day 58: 9/28/2018
+Worked on MIT 6.00.1x for a bit this evening. Hoping to start problem set 3 soon! 
