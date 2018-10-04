@@ -152,3 +152,6 @@ Continued working in MIT 6.00.1x - learned how Lists in Python are like Arrays i
 
 ### Day 58: 9/28/2018
 Worked on MIT 6.00.1x for a bit this evening. Hoping to start problem set 3 soon! 
+
+### Day 59: 10/3/2018
+I've been slacking on my tweets! Been working on my slide deck for conference talk this weekend. Also made good progress on hangman game in Python for MIT 6.00.1x 😄 
