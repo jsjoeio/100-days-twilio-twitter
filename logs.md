@@ -155,3 +155,6 @@ Worked on MIT 6.00.1x for a bit this evening. Hoping to start problem set 3 soon
 
 ### Day 59: 10/3/2018
 I've been slacking on my tweets! Been working on my slide deck for conference talk this weekend. Also made good progress on hangman game in Python for MIT 6.00.1x 😄 
+
+### Day 60: 10/6/2018
+Finished a secret project 🙊 will share more soon. Also made a bit of progress on MIT 6.00.1x 👨🏻‍💻
