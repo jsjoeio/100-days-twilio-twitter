@@ -158,3 +158,8 @@ I've been slacking on my tweets! Been working on my slide deck for conference ta
 
 ### Day 60: 10/6/2018
 Finished a secret project 🙊 will share more soon. Also made a bit of progress on MIT 6.00.1x 👨🏻‍💻
+
+### Day 61: 10/12/201
+Submitted my first PR of #Hacktoberfest and it was merged 😁
+
+Also, continued working through MIT 6.00.1x - a bit behind but just means it's time to grind! 
