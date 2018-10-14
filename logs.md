@@ -163,3 +163,8 @@ Finished a secret project 🙊 will share more soon. Also made a bit of progress
 Submitted my first PR of #Hacktoberfest and it was merged 😁
 
 Also, continued working through MIT 6.00.1x - a bit behind but just means it's time to grind! 
+
+### Day 62: 10/13/201
+Finished pset4 for MIT 6.00.1x
+
+Also started @wesbos Advanced React and I have to say, I'm super jazzed after the first module. Sounds like I'm gonna learn a lot 😄
