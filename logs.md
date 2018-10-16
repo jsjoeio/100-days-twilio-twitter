@@ -168,3 +168,8 @@ Also, continued working through MIT 6.00.1x - a bit behind but just means it's t
 Finished pset4 for MIT 6.00.1x
 
 Also started @wesbos Advanced React and I have to say, I'm super jazzed after the first module. Sounds like I'm gonna learn a lot 😄
+
+### Day 63: 10/15/201
+Made good progress on pset5 for MIT 6.00.1x 
+
+Hoping to finish the course this month 🤞🏼
