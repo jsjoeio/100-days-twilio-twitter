@@ -173,3 +173,8 @@ Also started @wesbos Advanced React and I have to say, I'm super jazzed after th
 Made good progress on pset5 for MIT 6.00.1x 
 
 Hoping to finish the course this month 🤞🏼
+
+### Day 64: 10/19/201
+Finished pset5 finally for MIT 6.00.1x ✊🏼
+
+Onto Week 6. Only two weeks left in the course! Feeling good about finishing within the next few weeks. 
