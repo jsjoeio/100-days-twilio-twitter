@@ -178,3 +178,8 @@ Hoping to finish the course this month 🤞🏼
 Finished pset5 finally for MIT 6.00.1x ✊🏼
 
 Onto Week 6. Only two weeks left in the course! Feeling good about finishing within the next few weeks. 
+
+### Day 65: 10/21/201
+Worked in MIT 6.00.1x a bit.
+
+Also started working on two course proposals for @eggheadio 😁
