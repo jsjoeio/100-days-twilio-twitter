@@ -183,3 +183,6 @@ Onto Week 6. Only two weeks left in the course! Feeling good about finishing wit
 Worked in MIT 6.00.1x a bit.
 
 Also started working on two course proposals for @eggheadio 😁
+
+### Day 66: 10/22/201
+Finished Week 6, part 11 of MIT 6.00.1x.  
