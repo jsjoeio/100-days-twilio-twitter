@@ -10,7 +10,7 @@ const FILE_LOCATION_URL =
   'https://api.github.com/repos/jsjoeio/100-days-twilio-twitter/contents/logs.md'
 
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').load()
+  require('dotenv').config()
 }
 
 /* Twitter API */
